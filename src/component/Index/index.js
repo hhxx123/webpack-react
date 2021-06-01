@@ -1,25 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {Router, Switch, Route, Link, HashRouter} from "react-router-dom";
-import App from "./App";
-import {createBrowserHistory} from 'history'
+import {Link, Route, Switch, BrowserRouter as Router, HashRouter} from "react-router-dom"
+import {Layout, Button,Menu} from "antd";
 
-let history = createBrowserHistory()
-ReactDOM.render(
-  <HashRouter>
-    <Switch>
-      <Route exact path='/' component={(props) => (
-        <App/>
-      )} />
-    </Switch>
-  </HashRouter>, document.getElementById('root'));
+const {Header, Footer, Sider, Content} = Layout;
+const {SubMenu} = Menu;
+import styles from "../index.less";
+import CommonLayout from "../common/Layout"
 
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <CommonLayout>
 
-
-
-
-
-
-
-
-
+        </CommonLayout>
+      </div>
+    )
+  }
+}

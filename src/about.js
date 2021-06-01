@@ -6,7 +6,7 @@ ReactDOM.render(
   <HashRouter>
     <Switch>
       <Route exact path='/' component={(props) => (
-        <div>About</div>
+        <div>About11111</div>
       )} />
     </Switch>
   </HashRouter>, document.getElementById('root'));
