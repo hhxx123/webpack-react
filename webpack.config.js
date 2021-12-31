@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const apiMocker = require("mocker-api");
 let path = require('path');
 module.exports = {
   entry: {
@@ -53,11 +54,22 @@ module.exports = {
         ]
       },
       {
-        test:/\.(png|svg|jpg|gif)$/,
-        use:[{
-          loader:'url-loader',
-         // options:
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [{
+          loader: 'url-loader',
+          // options:
         }]
+      },
+      {
+        test: /\.txt$/,
+        use: [
+          {
+            loader: "self-loader",
+            options: {modules:true}
+            // loader:path.resolve('path/to/loader.js') 可以通过path.resolve 执行具体路径
+          }
+        ]
+
       }
 
     ]
@@ -80,5 +92,9 @@ module.exports = {
         template: "./src/component/common/template/template1.html"
       }
     ),
-  ]
+  ],
+  resolveLoader: { //用于配置去哪些目录下寻找loader
+    modules: ['node_modules','./loaders']
+  }
+
 }

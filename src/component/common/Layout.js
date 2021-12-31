@@ -1,10 +1,12 @@
 import React from "react";
 import {Link, Route, Switch, BrowserRouter as Router, HashRouter} from "react-router-dom"
-import {Layout, Button, Menu} from "antd";
+import {Layout, Button, Menu, Select,Divider,InputNumber} from "antd";
 
-const {Header, Footer, Sider, Content} = Layout;
+const {Header, Footer, Sider, Content,} = Layout;
 const {SubMenu} = Menu;
 import styles from "../index.less";
+const Option = Select.Option;
+import 'antd/dist/antd.css';
 
 export default class App extends React.Component {
   handleClick = e => {
@@ -16,12 +18,12 @@ export default class App extends React.Component {
     return (
       <div>
         <Layout>
-          <Header className={styles.lyHeader}>this is header</Header>
+          <Header className={styles.lyHeader}>this is header
+          </Header>
           <Layout>
-            <Sider>
+            <Sider style={{position:"fixed",left:"0",paddingBottom:"100px"}}>
               <Menu
                 onClick={this.handleClick}
-                style={{width: 256}}
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 mode='inline'
@@ -52,13 +54,12 @@ export default class App extends React.Component {
                 </SubMenu>
               </Menu>
             </Sider>
-            <Content>{React.Children.map(children, child => {
+            <Content style={{marginLeft:"220px"}}>{React.Children.map(children, child => {
               return !!child.type ? React.cloneElement(child) : child
             })}</Content>
           </Layout>
-          <Footer>Footer</Footer>
+          {/*<Footer style={{position:"fixed",bottom:"0",width:"100%"}}>Footer</Footer>*/}
         </Layout>
-        <Button type="primary">test</Button>
       </div>
     )
   }
