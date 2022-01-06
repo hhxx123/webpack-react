@@ -6,13 +6,13 @@ import reqwest from "reqwest";
 import 'antd/dist/antd.css';
 import {Select} from "antd";
 const Option = Select.Option;
-import testTxtLoader from'./test.txt'
+// import testTxtLoader from'./test.txt'
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <span>手写一个针对txt文件的loader：{testTxtLoader}</span>
+        <span>手写一个针对txt文件的loader：{'testTxtLoader'}</span>
         <Demo/>
 
       </div>
